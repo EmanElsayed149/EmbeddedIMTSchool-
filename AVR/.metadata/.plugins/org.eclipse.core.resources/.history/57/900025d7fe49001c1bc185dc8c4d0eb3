@@ -1,0 +1,24 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 20, 2021
+ *      Author: Dell
+ */
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "util/delay.h"
+#include "DIO_int.h"
+#include "UART_int.h"
+
+int main(void)
+{
+	M_UART_Vid_Init();
+	u8 data[100];
+	M_UART_Vid_SendString("hi eman");
+	M_UART_Vid_RecieveString(data);
+	M_UART_Vid_SendString(data);
+	while(1)
+	{
+
+	}
+}

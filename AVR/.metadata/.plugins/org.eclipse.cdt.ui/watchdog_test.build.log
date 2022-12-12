@@ -1,0 +1,20 @@
+17:32:41 **** Incremental Build of configuration Debug for project watchdog_test ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 watchdog_test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    4948 bytes (15.1% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+17:32:41 Build Finished (took 220ms)
+

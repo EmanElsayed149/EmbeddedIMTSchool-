@@ -1,0 +1,20 @@
+13:27:54 **** Incremental Build of configuration Debug for project traffic-light ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 traffic-light.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    4126 bytes (12.6% Full)
+(.text + .data + .bootloader)
+
+Data:         18 bytes (0.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:27:55 Build Finished (took 238ms)
+

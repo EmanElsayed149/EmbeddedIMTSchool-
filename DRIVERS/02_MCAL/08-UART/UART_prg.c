@@ -1,0 +1,51 @@
+/*
+*Name     :Eman Elsayed
+*Layer    :MCAL
+*version  :V1.0 - 01/OCT/2021
+*/
+
+/*file inclusion */
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "DIO_int.h"
+#include "UART_reg.h"
+#include "UART_int.h"
+
+
+/*
+*public functions defintions
+*/
+
+void M_UART_Vid_Init(void)
+{
+	UCSRC=0x86;
+	CLR_BIT(UCSRB,UCSZ2);
+	UBRRL=51;
+	SET_BIT(UCSRB,RXEN);
+	SET_BIT(UCSRB,TXEN);
+}
+void M_UART_Vid_SendData(u8 Copy_U8_data)
+{
+	while(GIT_BIT(UCSRA,UDRE)==0);
+	UDR=Copy_U8_data;
+
+}
+u8 M_UART_U8_RecieveData(void)
+{
+	while(GIT_BIT(UCSRA,RXC)==0);
+	return UDR;
+}
+void M_UART_Vid_SendString(u8* Copy_PtrU8_String)
+{
+	for(u8 i=0;Copy_PtrU8_String[i]!='\0';i++)
+	{
+		M_UART_Vid_SendData(Copy_PtrU8_String[i]);
+	}
+}
+void M_UART_Vid_RecieveString(u8* Copy_PtrU8_String)
+{
+	for(u8 i=0;Copy_PtrU8_String[i]!='k';i++)
+	{
+		Copy_PtrU8_String[i]=M_UART_U8_RecieveData();
+	}
+}

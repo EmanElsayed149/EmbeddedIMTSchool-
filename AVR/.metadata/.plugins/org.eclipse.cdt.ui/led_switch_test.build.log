@@ -1,0 +1,48 @@
+02:08:56 **** Incremental Build of configuration Debug for project led_switch_test ****
+make all 
+Building file: ../DIO_pro.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"DIO_pro.d" -MT"DIO_pro.o" -c -o "DIO_pro.o" "../DIO_pro.c"
+Finished building: ../DIO_pro.c
+ 
+Building file: ../LED_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LED_prog.d" -MT"LED_prog.o" -c -o "LED_prog.o" "../LED_prog.c"
+Finished building: ../LED_prog.c
+ 
+Building file: ../SWITCH_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"SWITCH_prog.d" -MT"SWITCH_prog.o" -c -o "SWITCH_prog.o" "../SWITCH_prog.c"
+Finished building: ../SWITCH_prog.c
+ 
+Building target: led_switch_test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,led_switch_test.map -mmcu=atmega32 -o "led_switch_test.elf"  ./DIO_pro.o ./LED_prog.o ./SWITCH_prog.o ./main.o   
+Finished building target: led_switch_test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S led_switch_test.elf  >"led_switch_test.lss"
+Finished building: led_switch_test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex led_switch_test.elf  "led_switch_test.hex"
+Finished building: led_switch_test.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 led_switch_test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1832 bytes (5.6% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+02:08:58 Build Finished (took 1s.331ms)
+

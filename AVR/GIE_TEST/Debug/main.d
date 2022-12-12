@@ -1,0 +1,12 @@
+main.o main.o: ../main.c ../STD_TYPES.h ../BIT_MATH.h ../DIO_int.h \
+  ../GIE_int.h ../EXI_int.h
+
+../STD_TYPES.h:
+
+../BIT_MATH.h:
+
+../DIO_int.h:
+
+../GIE_int.h:
+
+../EXI_int.h:

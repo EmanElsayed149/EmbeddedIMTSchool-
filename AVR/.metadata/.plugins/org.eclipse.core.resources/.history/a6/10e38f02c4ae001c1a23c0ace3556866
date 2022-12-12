@@ -1,0 +1,55 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 8, 2021
+ *      Author: Dell
+ */
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "DIO_int.h"
+#include <util/delay.h>
+#include "LCD_int.h"
+
+int main(void)
+{
+	H_LCD_Vid_Int();
+	u32 Time=6*60;
+	u32 time_hour=6,time_minute=0;
+	double angle=0,dis;
+	H_LCD_Vid_Pnt_Number( Time%60);
+	_delay_ms(6*1000);
+	while(1)
+	{
+
+		/******* for printing my name in sine wave ***********/
+		/*for(int i=0;i<12;)
+		{
+			for(int j=0;j<2;j++)
+			{
+				H_LCD_Vid_GotoRowCol(j,i);
+				H_LCD_Vid_Wrt_Str("Eman");
+				_delay_ms(500);
+				H_LCD_Vid_Clear();
+				i+=4;
+			}
+		}*/
+		H_LCD_Vid_Clear();
+		Time+=15;
+		time_hour=Time/60;
+		time_minute=Time%60;
+		angle+=3.75;
+		dis=(1600/360)*angle;
+		H_LCD_Vid_GotoRowCol(0,5);
+		H_LCD_Vid_Pnt_Number( time_hour);
+		H_LCD_Vid_Wrt_CHr(':');
+		H_LCD_Vid_Pnt_Number( time_minute);
+		H_LCD_Vid_GotoRowCol(1,5);
+		H_LCD_Vid_Pnt_Number( (int)angle);
+		H_LCD_Vid_Wrt_CHr('.');
+        double fl=angle-(int)angle;
+        H_LCD_Vid_Pnt_Number( fl);
+		_delay_ms(6*1000);
+
+	}
+}
+

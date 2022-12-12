@@ -1,0 +1,33 @@
+15:53:34 **** Incremental Build of configuration Debug for project UART_test ****
+make all 
+Building target: UART_test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,UART_test.map -mmcu=atmega32 -o "UART_test.elf"  ./DIO_pro.o ./UART_prg.o ./main.o   
+Finished building target: UART_test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S UART_test.elf  >"UART_test.lss"
+Finished building: UART_test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex UART_test.elf  "UART_test.hex"
+Finished building: UART_test.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 UART_test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1890 bytes (5.8% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+15:53:34 Build Finished (took 641ms)
+

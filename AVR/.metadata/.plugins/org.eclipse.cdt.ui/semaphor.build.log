@@ -1,0 +1,38 @@
+21:53:39 **** Incremental Build of configuration Debug for project semaphor ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: semaphor.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,semaphor.map -mmcu=atmega32 -o "semaphor.elf"  ./DIO_pro.o ./croutine.o ./heap_1.o ./list.o ./main.o ./port.o ./queue.o ./tasks.o ./timers.o   
+Finished building target: semaphor.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S semaphor.elf  >"semaphor.lss"
+Finished building: semaphor.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex semaphor.elf  "semaphor.hex"
+Finished building: semaphor.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 semaphor.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   11562 bytes (35.3% Full)
+(.text + .data + .bootloader)
+
+Data:        769 bytes (37.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+21:53:40 Build Finished (took 981ms)
+

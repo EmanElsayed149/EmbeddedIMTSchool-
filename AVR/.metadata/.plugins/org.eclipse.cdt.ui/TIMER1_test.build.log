@@ -1,0 +1,50 @@
+14:57:01 **** Incremental Build of configuration Debug for project TIMER1_test ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:9:
+g:/eman/study/imt/imt_sdk_win_64/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'main':
+../main.c:37: warning: implicit declaration of function 'ICU_CALL_BACK'
+../main.c:76: warning: implicit declaration of function 'sprintf'
+../main.c:76: warning: incompatible implicit declaration of built-in function 'sprintf'
+../main.c:76: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness
+../main.c:77: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness
+../main.c:79: warning: pointer targets in passing argument 1 of 'H_LCD_Vid_Wrt_Str' differ in signedness
+../main.c:82: warning: pointer targets in passing argument 1 of 'H_LCD_Vid_Wrt_Str' differ in signedness
+../main.c: In function 'ISR':
+../main.c:108: warning: implicit declaration of function 'M_TIMER1_Vid_DeInit'
+Finished building: ../main.c
+ 
+Building target: TIMER1_test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TIMER1_test.map -mmcu=atmega32 -o "TIMER1_test.elf"  ./DIO_pro.o ./GIE_prg.o ./LCD_prg.o ./TIMER1_prg.o ./TIMER_prg.o ./main.o   
+Finished building target: TIMER1_test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TIMER1_test.elf  >"TIMER1_test.lss"
+Finished building: TIMER1_test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TIMER1_test.elf  "TIMER1_test.hex"
+Finished building: TIMER1_test.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TIMER1_test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   12112 bytes (37.0% Full)
+(.text + .data + .bootloader)
+
+Data:        309 bytes (15.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+14:57:02 Build Finished (took 1s.168ms)
+
